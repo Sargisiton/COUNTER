@@ -35,6 +35,7 @@
 		<Unit filename="compare.cpp" />
 		<Unit filename="counter.h" />
 		<Unit filename="funtion.cpp" />
+		<Unit filename="judge.cpp" />
 		<Unit filename="menu.cpp" />
 		<Unit filename="result.cpp" />
 		<Extensions>

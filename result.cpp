@@ -83,7 +83,7 @@ void Counter::result(){
                         //double temp=sign[sign.size()-1];
                         //double temp2;
                         //for(double i=1;(temp2=temp/i)<1;i=i*10);//
-
+                        if(sign.size()-2<0){cout<<"erro"<<endl;exit(0);}
                         switch (str2[i])
                         {
                             case '+':
@@ -122,6 +122,9 @@ void Counter::result(){
                                 sign.pop_back();
                                 sign.push_back(t);
                                 break;
+                            default :
+                                cout<<"erro"<<endl;
+                                exit(0);
                         }
                     }
                         //for(int j=0;j<=sign.size()-1;j++)
@@ -129,4 +132,67 @@ void Counter::result(){
 
                 }
                 t=sign[0];
+                }
+double Counter::result(string tr){
+        int i;
+        vector<double> sign;
+        for(i=0;i<=tr.size()-1;i++)
+        {
+                    if(tr[i]>='0'&&tr[i]<='9')
+                    {sign.push_back(double (tr[i]-48));}
+                    else
+                    {
+                        //double temp=sign[sign.size()-1];
+                        //double temp2;
+                        //for(double i=1;(temp2=temp/i)<1;i=i*10);//
+                        if(sign.size()-2<0){cout<<"erro"<<endl;exit(0);}
+                        switch (tr[i])
+                        {
+                            case '+':
+                                t=sign[sign.size()-1]+sign[sign.size()-2];
+                                sign.pop_back();
+                                sign.pop_back();
+                                sign.push_back(t);
+                                break;
+                            case '-':
+                                t=sign[sign.size()-2]-sign[sign.size()-1];
+                                sign.pop_back();
+                                sign.pop_back();
+                                sign.push_back(t);
+                                break;
+                            case '*':
+                                t=sign[sign.size()-1]*sign[sign.size()-2];
+                                sign.pop_back();
+                                sign.pop_back();
+                                sign.push_back(t);
+                                break;
+                            case '/':
+                                t=sign[sign.size()-2]/sign[sign.size()-1];
+                                sign.pop_back();
+                                sign.pop_back();
+                                sign.push_back(t);
+                                break;
+                            case '.':
+                                t=result_function1(sign[sign.size()-2],sign[sign.size()-1]);
+                                sign.pop_back();
+                                sign.pop_back();
+                                sign.push_back(t);
+                                break;
+                            case '&':
+                                t=result_function2(sign[sign.size()-2],sign[sign.size()-1]);
+                                sign.pop_back();
+                                sign.pop_back();
+                                sign.push_back(t);
+                                break;
+                            default:
+                                cout<<"erro"<<endl;
+                                exit(0);
+                        }
+                    }
+                        //for(int j=0;j<=sign.size()-1;j++)
+                        //{cout<<sign[j]<<' ';}cout<<endl;
+
+                }
+                t=sign[0];
+                return t;
                 }
