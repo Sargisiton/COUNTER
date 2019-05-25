@@ -20,6 +20,10 @@ void Counter::fun1()//处理大于10的数
 	string temp;
 	string str;
 	fun2();
+	if(str2[0]=='-')
+    {
+        str+='0';
+    }
 	for(i=0;i<=str2.size()-1;i++)
 	{
 		int l=0;
